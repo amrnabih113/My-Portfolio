@@ -90,7 +90,7 @@ class ContactSection extends StatelessWidget {
                       label: 'LinkedIn',
                       color: AppColors.accent,
                       onTap: () =>
-                          _launchUrl('https://linkedin.com/in/amrnabih112'),
+                          _launchUrl('https://www.linkedin.com/in/amr-nabih112'),
                     ),
                     _ContactActionButton(
                       iconWidget: Image.asset(
