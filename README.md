@@ -63,11 +63,6 @@ flutter build web --release --base-href /My-Portfolio/
 
 ## 📧 Contact
 
-- **Email**: amrnabih113@gmail.com
-- **Phone**: +201141844227
-- **LinkedIn**: [linkedin.com/in/amrnabih112](https://linkedin.com/in/amrnabih112)
-- **GitHub**: [github.com/amrnabih113](https://github.com/amrnabih113)
-
 ## 📝 License
 
 © 2025 Amr Nabih. All rights reserved.
