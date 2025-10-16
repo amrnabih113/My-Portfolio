@@ -69013,7 +69013,7 @@ A.SU.prototype={
 $0(){return this.a.kE("tel:+201141844227")},
 $S:0}
 A.SV.prototype={
-$0(){return this.a.kE("https://linkedin.com/in/amrnabih112")},
+$0(){return this.a.kE("https://www.linkedin.com/in/amr-nabih112")},
 $S:0}
 A.SW.prototype={
 $0(){return this.a.kE("https://github.com/amrnabih113")},
