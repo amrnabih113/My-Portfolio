@@ -4,7 +4,7 @@ A professional portfolio showcasing my mobile development expertise, built with 
 
 ## 🌐 Live Demo
 
-Visit my portfolio: [https://amrnabih113.github.io/myportfolio/](https://amrnabih113.github.io/myportfolio/)
+Visit my portfolio: [https://amrnabih113.github.io/My-Portfolio/](https://amrnabih113.github.io/My-Portfolio/)
 
 ## 🚀 Features
 
@@ -35,8 +35,8 @@ Visit my portfolio: [https://amrnabih113.github.io/myportfolio/](https://amrnabi
 
 ```bash
 # Clone the repository
-git clone https://github.com/amrnabih113/myportfolio.git
-cd myportfolio
+git clone https://github.com/amrnabih113/My-Portfolio.git
+cd My-Portfolio
 
 # Install dependencies
 flutter pub get
@@ -56,7 +56,7 @@ This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
 
 ```bash
 # Build for GitHub Pages
-flutter build web --release --base-href /myportfolio/
+flutter build web --release --base-href /My-Portfolio/
 
 # The build output will be in build/web/
 ```
