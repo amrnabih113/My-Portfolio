@@ -18,6 +18,7 @@ class CertificationsGrid extends StatelessWidget {
             'Built a foundational understanding of computer science principles, algorithms, and problem-solving techniques. Learned core concepts like data structures, memory, and computational thinking.',
         icon: Icons.computer_rounded,
         color: AppColors.primary,
+        certificateUrl: 'https://drive.google.com/file/d/186msy76VWJzvxnYM_g4TQfDasLBiOtxU/view?usp=drive_link',
       ),
       CertificationModel(
         title: 'InnovEgypt Program',
@@ -27,6 +28,7 @@ class CertificationsGrid extends StatelessWidget {
             'Successfully completed a 45-hour training course and developed a final project for a potential startup',
         icon: Icons.lightbulb_rounded,
         color: AppColors.accent,
+        certificateUrl: 'https://drive.google.com/file/d/1zCHA-gsr17Swn-dDv-rTr62L4mNVZKgy/view?usp=drive_link',
       ),
       CertificationModel(
         title: 'CS50\'s Introduction to Databases',
@@ -35,6 +37,7 @@ class CertificationsGrid extends StatelessWidget {
         description: 'Deep dive into database design and management.',
         icon: Icons.storage_rounded,
         color: AppColors.secondary,
+        certificateUrl: 'https://drive.google.com/file/d/1WlOouaH8D_ur9ZO2jLKJHhD-kQWZhg9S/view?usp=drive_link',
       ),
       CertificationModel(
         title: 'Flutter Clean Architecture',
@@ -43,6 +46,7 @@ class CertificationsGrid extends StatelessWidget {
         description: 'Mastering structured and maintainable codebases',
         icon: Icons.architecture_rounded,
         color: AppColors.primary,
+        certificateUrl: 'https://drive.google.com/file/d/1oRuDRlTyy-oBAWXR8zYgsirzO2Vg4mqb/view?usp=drive_link',
       ),
     ];
 

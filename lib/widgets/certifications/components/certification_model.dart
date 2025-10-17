@@ -8,6 +8,7 @@ class CertificationModel {
   final String description;
   final IconData icon;
   final Color color;
+  final String? certificateUrl;
 
   const CertificationModel({
     required this.title,
@@ -16,5 +17,6 @@ class CertificationModel {
     required this.description,
     required this.icon,
     required this.color,
+    this.certificateUrl,
   });
 }

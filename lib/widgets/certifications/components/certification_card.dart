@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../../utils/utils.dart';
 import 'certification_model.dart';
 
@@ -62,6 +64,14 @@ class _CertificationCardState extends State<CertificationCard>
     super.dispose();
   }
 
+  Future<void> _launchUrl(String url) async {
+    if (kIsWeb) {
+      await launchUrlString(url, webOnlyWindowName: '_blank');
+    } else {
+      await launchUrlString(url);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -83,33 +93,37 @@ class _CertificationCardState extends State<CertificationCard>
             child: MouseRegion(
               onEnter: (_) => _hoverController.forward(),
               onExit: (_) => _hoverController.reverse(),
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(
-                  Responsive.getValue(
-                    context,
-                    mobile: 20,
-                    tablet: 24,
-                    desktop: 28,
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.surfaceDark,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: widget.certification.color.withOpacity(0.18),
-                      blurRadius: _elevationAnimation.value * 0.9,
-                      offset: Offset(0, _elevationAnimation.value / 3),
-                      spreadRadius: 1,
+              child: GestureDetector(
+                onTap: widget.certification.certificateUrl != null
+                    ? () => _launchUrl(widget.certification.certificateUrl!)
+                    : null,
+                child: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.all(
+                    Responsive.getValue(
+                      context,
+                      mobile: 20,
+                      tablet: 24,
+                      desktop: 28,
                     ),
-                  ],
-                  border: Border.all(
-                    color: widget.certification.color.withOpacity(0.22),
-                    width: 1,
                   ),
-                ),
-                child: Column(
+                  decoration: BoxDecoration(
+                    color: AppColors.surfaceDark,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: widget.certification.color.withOpacity(0.18),
+                        blurRadius: _elevationAnimation.value * 0.9,
+                        offset: Offset(0, _elevationAnimation.value / 3),
+                        spreadRadius: 1,
+                      ),
+                    ],
+                    border: Border.all(
+                      color: widget.certification.color.withOpacity(0.22),
+                      width: 1,
+                    ),
+                  ),
+                  child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Header with icon and year
@@ -214,11 +228,12 @@ class _CertificationCardState extends State<CertificationCard>
                       ),
                     ),
                   ],
-                ),
-              ),
-            ),
-          ),
-        );
+                ), // Column
+              ), // Container
+            ), // GestureDetector
+          ), // MouseRegion
+        ), // Opacity
+      ); // Transform.scale - builder return
       },
     );
   }
