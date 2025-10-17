@@ -1,6 +1,6 @@
 # Flutter Portfolio - Amr Nabih
 
-A professional portfolio showcasing my mobile development expertise, built with Flutter.
+A professional portfolio web app built with Flutter Web, showcasing my skills, certifications, and projects.
 
 ## 🌐 Live Demo
 
@@ -8,20 +8,20 @@ Visit my portfolio: [https://amrnabih113.github.io/My-Portfolio/](https://amrnab
 
 ## 🚀 Features
 
-- Responsive design (Mobile, Tablet, Desktop)
-- Midnight-tech themed UI with gradients
-- Interactive sections: Hero, About, Services, Certifications, Skills, Experience, Contact
-- Smooth scrolling navigation
-- Active section highlighting in navbar
-- Social media integration
-- Modern glassmorphism design
+- Responsive design for mobile, tablet, and desktop
+- Modern midnight-tech themed UI with gradients and glassmorphism
+- Interactive sections: Hero, About, Certifications (with clickable certificate links), Skills, Experience (with "View Code" buttons for each project), Contact
+- Smooth scrolling navigation and active section highlighting
+- Social media integration (LinkedIn, GitHub, etc.)
+- External links to project repositories and certificates
 
 ## 🛠️ Technologies
 
-- Flutter Web
+- Flutter Web (3.24.0)
 - Dart
 - Material Design
 - Custom animations
+- url_launcher for external links
 
 ## 📦 Setup & Run Locally
 
@@ -34,34 +34,39 @@ Visit my portfolio: [https://amrnabih113.github.io/My-Portfolio/](https://amrnab
 ### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/amrnabih113/My-Portfolio.git
 cd My-Portfolio
-
-# Install dependencies
 flutter pub get
-
-# Run on Chrome
 flutter run -d chrome
-
-# Build for production
 flutter build web --release
 ```
 
 ## 📄 Deployment
 
-This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
-
-### Manual Deployment
+Deployed to GitHub Pages using GitHub Actions.  
+Manual deployment uses `git subtree` to push only the web build to the `gh-pages` branch.
 
 ```bash
-# Build for GitHub Pages
 flutter build web --release --base-href /My-Portfolio/
-
-# The build output will be in build/web/
+# Deploy build/web/ to gh-pages branch
 ```
 
+## 🏆 Certifications
+
+All certifications are displayed with clickable cards linking to their official certificates.
+
+## 💼 Projects
+
+Each project card in the Experience section includes a "View Code" button linking to its GitHub repository:
+
+- FurFriends
+- Knowva
+- A-Store
+- SmartFin
+
 ## 📧 Contact
+
+Connect with me via LinkedIn or email (see portfolio contact section).
 
 ## 📝 License
 
