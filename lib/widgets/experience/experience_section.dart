@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../utils/utils.dart';
 import '../../models/experience.dart';
 
@@ -486,11 +488,13 @@ class _ProjectPoster {
   final String imageAsset;
   final List<String> technologies;
   final String description;
+  final String? githubUrl;
   const _ProjectPoster({
     required this.title,
     required this.imageAsset,
     required this.technologies,
     required this.description,
+    this.githubUrl,
   });
 }
 
@@ -543,6 +547,14 @@ class _ProjectsGrid extends StatelessWidget {
 class _ProjectPosterCard extends StatelessWidget {
   final _ProjectPoster project;
   const _ProjectPosterCard({required this.project});
+
+  Future<void> _launchUrl(String url) async {
+    if (kIsWeb) {
+      await launchUrlString(url, webOnlyWindowName: '_blank');
+    } else {
+      await launchUrlString(url);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -627,6 +639,31 @@ class _ProjectPosterCard extends StatelessWidget {
                         )
                         .toList(),
                   ),
+                  if (project.githubUrl != null) ...[
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        onPressed: () => _launchUrl(project.githubUrl!),
+                        icon: const Icon(Icons.code_rounded, size: 16),
+                        label: const Text('View Code'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          foregroundColor: AppColors.textLight,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          textStyle: AppTextStyles.caption.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ],
               ),
             ),
@@ -672,6 +709,7 @@ const List<_ProjectPoster> _projectsPosters = [
     technologies: ['Clean Arch', 'SQLite', 'Sync'],
     description:
         'Budgeting, expense tracking, insights with clean UI and secure handling.',
+    githubUrl: 'https://github.com/amrnabih113/SmartFin.git',
   ),
   _ProjectPoster(
     title: 'A-Store (E-Commerce)',
@@ -679,6 +717,7 @@ const List<_ProjectPoster> _projectsPosters = [
     technologies: ['Supabase', 'GetX', 'MVVM', 'Auth'],
     description:
         'Feature-rich shopping experience with modern UI and robust functionality.',
+    githubUrl: 'https://github.com/amrnabih113/A-Store.git',
   ),
   _ProjectPoster(
     title: 'FriendFur (Pet Adoption)',
@@ -686,6 +725,7 @@ const List<_ProjectPoster> _projectsPosters = [
     technologies: ['Firebase', 'GetX', 'Onboarding'],
     description:
         'Discover and adopt pets, connect with community, share stories.',
+    githubUrl: 'https://github.com/amrnabih113/FurFriends.git',
   ),
   _ProjectPoster(
     title: 'Knowva (AI Educational Assistant)',
@@ -693,5 +733,6 @@ const List<_ProjectPoster> _projectsPosters = [
     technologies: ['GetX', 'Dio', 'GetStorage', 'intl'],
     description:
         'M3 UI, responsive layouts, APIs, storage, media pickers, notifications.',
+    githubUrl: 'https://github.com/Knowva-Educational-Platform/knowva_Flutter.git',
   ),
 ];
